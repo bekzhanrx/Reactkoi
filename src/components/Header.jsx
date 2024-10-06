@@ -18,7 +18,7 @@ export default function Header() {
 
     // Обновляем время каждую минуту
     updateTime();
-    const intervalId = setInterval(updateTime, 60000); // 60 секунд
+    const intervalId = setInterval(updateTime, 30000); // 60 секунд
 
     // Очищаем интервал при размонтировании компонента
     return () => clearInterval(intervalId);
@@ -46,7 +46,7 @@ export default function Header() {
       <div className="current-time">
         <p>Текущее время: {currentTime}</p>
       </div>
-      <a href='#' className='voiti'>
+      <a href='login' className='voiti'>
         <img className='user' src='user.png' alt='User Icon'></img>
         <p>Войти</p>
       </a>

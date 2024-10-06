@@ -8,8 +8,11 @@ import '../App.css';
 export default function Home() {
   return (
     <div>
+      <Header/>
+      <NavigationBar/>
       <BannerCarusel/>
       <Category/>
+      <Footer/>
     </div>
   )
 }
