@@ -11,7 +11,7 @@ export default function Login(props) {
 
     // Log in a user using username and password
     const logIn = useCallback(() => {
-        fetch("http://localhost:5173/auth/auth_token", {
+        fetch("http://localhost:8081/auth/auth_token", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

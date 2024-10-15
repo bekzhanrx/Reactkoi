@@ -1,32 +1,29 @@
 import React, { useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom'; // Импортируем хук для навигации
+import { useNavigate } from 'react-router-dom';
 import '../styles/NavigationBar.css';
 
-export default function NavigationBar() {
-  const [searchText, setSearchText] = useState(''); // состояние для текста поиска
-  const navigate = useNavigate(); // Хук для выполнения навигации
+export default function NavigationBar({ onSearch }) { // Получаем onSearch как пропс
+  const [searchText, setSearchText] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    setSearchText(e.target.value); // обновляем состояние при изменении инпута
+    setSearchText(e.target.value);
   };
 
   const handleSearch = () => {
-    console.log("Поиск по запросу:", searchText); // выполняем действие при нажатии кнопки
+    onSearch(searchText); // Вызываем переданную функцию с текстом поиска
   };
 
-  // Оптимизация функции для клика по логотипу
   const handleLogoClick = useCallback(() => {
-    navigate('/'); // Переход на главную страницу
-  }, [navigate]); // Функция изменяется, если изменится navigate
+    navigate('/');
+  }, [navigate]);
 
   return (
     <nav className="navigation-bar">
-      {/* Логотип */}
       <div className="logo" onClick={handleLogoClick}>
-        <img src="diaz.jpeg" alt="Логотип" />
+        <img src="logo.jpeg" alt="Логотип" />
       </div>
 
-      {/* Поле для поиска с кнопкой */}
       <div className="search-container">
         <img className="search" src="search.png" alt="Поиск" />
         <input
@@ -34,14 +31,13 @@ export default function NavigationBar() {
           placeholder="Поиск товаров..."
           className="search-input"
           value={searchText}
-          onChange={handleInputChange} // обработчик изменения текста
+          onChange={handleInputChange}
         />
         <button className="search-button" onClick={handleSearch}>
           Найти
         </button>
       </div>
 
-      {/* Иконки для избранного и корзины */}
       <div className="nav-icons">
         <div className="icon fav-icon">
           <img src="isb.png" alt="Избранное" />
@@ -55,4 +51,3 @@ export default function NavigationBar() {
     </nav>
   );
 }
-

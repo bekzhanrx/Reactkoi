@@ -7,7 +7,7 @@ const images = [
   "banner3.jpg"
 ];
 
-export default function BannerCarousel() {
+export default function BannerCarusel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

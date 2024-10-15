@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import '../styles/Category.css';
 
 export default function Category() {
@@ -16,12 +17,11 @@ export default function Category() {
     { id: 10, name: 'Фитнес и спорт', image: 'fitness.jpg' }
   ], []); // Мемоизируем массив категорий
 
-  // Состояние для хранения выбранной категории
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate = useNavigate(); // Инициализация хука навигации
 
-  // Обработчик для выбора категории
+  // Обработчик для клика по категории
   const handleCategoryClick = (categoryId) => {
-    setSelectedCategory(categoryId); // Устанавливаем выбранную категорию
+    navigate(`/products?category=${categoryId}`); // Переход на страницу продуктов с параметром категории
   };
 
   return (
@@ -31,7 +31,7 @@ export default function Category() {
         {categories.map(category => (
           <div 
             key={category.id} 
-            className={`category-card ${selectedCategory === category.id ? 'selected' : ''}`}
+            className="category-card"
             onClick={() => handleCategoryClick(category.id)} // Обработчик клика
           >
             <img src={category.image} alt={category.name} className="category-image" />
@@ -42,5 +42,6 @@ export default function Category() {
     </div>
   );
 }
+
 
 
