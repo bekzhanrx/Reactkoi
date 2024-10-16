@@ -1,9 +1,10 @@
-import React, { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
+// components/Category.jsx
+import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Category.css';
+import withRenderLogging from './withRenderLogging';
 
-export default function Category() {
-  // Мемоизация массива категорий
+function Category() {
   const categories = useMemo(() => [
     { id: 1, name: 'Витамины и БАДы', image: 'vitamins.jpg' },
     { id: 2, name: 'Лекарства', image: 'medicine.jpg' },
@@ -15,24 +16,23 @@ export default function Category() {
     { id: 8, name: 'Средства для похудения', image: 'weight_loss.jpg' },
     { id: 9, name: 'Товары для аллергиков', image: 'allergy.jpg' },
     { id: 10, name: 'Фитнес и спорт', image: 'fitness.jpg' }
-  ], []); // Мемоизируем массив категорий
+  ], []);
 
-  const navigate = useNavigate(); // Инициализация хука навигации
+  const navigate = useNavigate();
 
-  // Обработчик для клика по категории
   const handleCategoryClick = (categoryId) => {
-    navigate(`/products?category=${categoryId}`); // Переход на страницу продуктов с параметром категории
+    navigate(`/products?category=${categoryId}`);
   };
 
   return (
     <div className="categories-section">
-      <h2 className="categories-title">Категории</h2> {/* Заголовок */}
+      <h2 className="categories-title">Категории</h2>
       <div className="categories-grid">
         {categories.map(category => (
           <div 
             key={category.id} 
             className="category-card"
-            onClick={() => handleCategoryClick(category.id)} // Обработчик клика
+            onClick={() => handleCategoryClick(category.id)}
           >
             <img src={category.image} alt={category.name} className="category-image" />
             <h3 className="category-name">{category.name}</h3>
@@ -43,5 +43,7 @@ export default function Category() {
   );
 }
 
+// Оборачиваем компонент HOC-ом
+export default withRenderLogging(Category);
 
 
