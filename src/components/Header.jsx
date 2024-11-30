@@ -37,7 +37,7 @@ export default function Header() {
         </div>
         <div className='hel'>
           <a href='#' className='contact'>
-            <img className='call' src='call.png' alt='Call Icon'></img>
+            <img className='call' src='/call.png' alt='Call Icon'></img>
             <p>11 343</p>
           </a>
         </div>
@@ -47,7 +47,7 @@ export default function Header() {
         <p>Текущее время: {currentTime}</p>
       </div>
       <a href='login' className='voiti'>
-        <img className='user' src='user.png' alt='User Icon'></img>
+        <img className='user' src='/user.png' alt='User Icon'></img>
         <p>Войти</p>
       </a>
     </header>

@@ -4,19 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Category.css';
 import withRenderLogging from './withRenderLogging';
 
+const categories = [
+  { id: 1, name: 'Витамины и БАДы', image: 'vitamins.jpg' },
+  { id: 2, name: 'Лекарства', image: 'medicine.jpg' },
+  { id: 3, name: 'Косметика', image: 'cosmetics.jpg' },
+  { id: 4, name: 'Детские товары', image: 'baby_products.jpg' },
+  { id: 5, name: 'Гигиена', image: 'hygiene.jpg' },
+  { id: 6, name: 'Медицинская техника', image: 'medical_tech.jpg' },
+  { id: 7, name: 'Ортопедия', image: 'orthopedics.jpg' },
+  { id: 8, name: 'Средства для похудения', image: 'weight_loss.jpg' },
+  { id: 9, name: 'Товары для аллергиков', image: 'allergy.jpg' },
+  { id: 10, name: 'Фитнес и спорт', image: 'fitness.jpg' }
+];
+
 function Category() {
-  const categories = useMemo(() => [
-    { id: 1, name: 'Витамины и БАДы', image: 'vitamins.jpg' },
-    { id: 2, name: 'Лекарства', image: 'medicine.jpg' },
-    { id: 3, name: 'Косметика', image: 'cosmetics.jpg' },
-    { id: 4, name: 'Детские товары', image: 'baby_products.jpg' },
-    { id: 5, name: 'Гигиена', image: 'hygiene.jpg' },
-    { id: 6, name: 'Медицинская техника', image: 'medical_tech.jpg' },
-    { id: 7, name: 'Ортопедия', image: 'orthopedics.jpg' },
-    { id: 8, name: 'Средства для похудения', image: 'weight_loss.jpg' },
-    { id: 9, name: 'Товары для аллергиков', image: 'allergy.jpg' },
-    { id: 10, name: 'Фитнес и спорт', image: 'fitness.jpg' }
-  ], []);
+ 
 
   const navigate = useNavigate();
 

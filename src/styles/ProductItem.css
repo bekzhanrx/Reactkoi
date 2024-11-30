@@ -5,7 +5,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Анимация при наведении */
     background-color: white; /* Белый фон для контраста */
     text-align: center; /* Центрирование контента */
-    padding: 15px; /* Внутренние отступы */
+    padding: 15px; /* Внутренние отступы */ 
   }
 
   .product-item h3{
@@ -39,4 +39,5 @@
     color: #ff6600; /* Яркий цвет для цены */
     font-weight: bold; /* Жирный шрифт */
   }
+  
   

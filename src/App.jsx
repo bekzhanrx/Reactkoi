@@ -5,6 +5,10 @@ import ProductsPage from './pages/ProductsPage';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Register from './pages/Register';
+import ProductDetail from './pages/ProductDetailPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -29,6 +33,9 @@ function App() {
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setUsername={setUsername} />} />
           <Route path='/signup' element={<Register setLoggedIn={setLoggedIn} setUsername={setUsername} />} />
           <Route path="/products" element={<ProductsPage />} /> {/* Маршрут для ProductsPage */}
+          <Route path="/products/:id" element={<ProductDetailPage/>} /> {/* Маршрут для продукта */}
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
     </div>

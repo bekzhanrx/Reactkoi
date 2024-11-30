@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../styles/BannerCarusel.css';
 
 const images = [
-  "banner1.jpg",
-  "banner2.jpg",
-  "banner3.jpg"
+  "/banner1.jpg",
+  "/banner2.jpg",
+  "/banner3.jpg"
 ];
 
 export default function BannerCarusel() {
