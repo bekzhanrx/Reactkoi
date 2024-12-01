@@ -1,10 +1,12 @@
-import React, {useMemo, useState } from 'react';
+import React, { useMemo, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import ProductList from '../components/ProductList';
 import '../styles/ProductsPage.css';
 import Header from '../components/Header';
 import NavigationBar from '../components/NavigationBar';
 import BannerCarusel from '../components/BannerCarusel';
+import { setSearchTerm } from '../store'; // Импортируем действие
 
 export const productsData = [
   { 
@@ -91,14 +93,17 @@ export const productsData = [
 
 
 export default function ProductsPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch();
+  const { searchTerm } = useSelector(state => state.search); // Получаем поисковый запрос из Redux
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category');
 
+  // Обработчик поиска, который будет обновлять состояние в Redux
   const handleSearch = (searchText) => {
-    setSearchTerm(searchText); // Обновляем состояние поиска
+    dispatch(setSearchTerm(searchText)); // Обновляем поисковый запрос в Redux
   };
 
+  // Фильтрация продуктов с использованием поискового запроса и категории
   const filteredProducts = useMemo(() => {
     const filteredByCategory = categoryParam 
       ? productsData.filter(product => product.categoryId === parseInt(categoryParam)) 
@@ -121,4 +126,3 @@ export default function ProductsPage() {
     </div>
   );
 }
-
