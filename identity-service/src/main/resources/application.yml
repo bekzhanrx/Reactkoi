@@ -1,0 +1,8 @@
+rsa:
+  private-key: classpath:certs/private-keyy.pem
+  public-key: classpath:certs/public-key.pem
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
